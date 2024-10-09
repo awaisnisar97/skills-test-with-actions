@@ -25,12 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Add the following step at the end of the workflow to run markdown lint
-      - name: Run markdown lint
+      # Install the required packages and run markdown lint
+      - name: Install packages and run markdown lint
         run: |
           npm install remark-cli remark-preset-lint-consistent
           npx remark . --use remark-preset-lint-consistent --frail
-     
+
+      # Run a multi-line script to echo other actions
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
